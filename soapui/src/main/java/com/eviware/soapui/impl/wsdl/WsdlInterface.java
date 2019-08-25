@@ -68,6 +68,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import static java.util.Comparator.comparing;
 
 /**
  * WSDL implementation of Interface, maps to a WSDL Binding
@@ -568,6 +571,21 @@ public class WsdlInterface extends AbstractInterface<WsdlInterfaceConfig> {
             wsdlOperation.release();
             getConfig().removeOperation(c);
         }
+    }
+
+    public void sortOperationsByName() {
+        AtomicInteger i = new AtomicInteger(0);
+        OperationConfig[] newOperationConfigs = getConfig().getOperationList().stream()
+                .sorted(comparing(OperationConfig::getName))
+                .map(operationConfig -> {
+                    OperationConfig newOperationConfig = (OperationConfig) operationConfig.copy();
+                    WsdlOperation newOperation = new WsdlOperation(this, newOperationConfig);
+                    fireOperationRemoved(operations.set(i.getAndIncrement(), newOperation));
+                    fireOperationAdded(newOperation);
+                    return newOperationConfig;
+                })
+                .toArray(OperationConfig[]::new);
+        getConfig().setOperationArray(newOperationConfigs);
     }
 
     public WsdlOperation getOperationByName(String name) {

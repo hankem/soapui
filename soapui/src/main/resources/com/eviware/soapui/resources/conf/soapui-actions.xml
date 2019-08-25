@@ -91,6 +91,8 @@
                 actionClass="com.eviware.soapui.impl.wsdl.actions.iface.GenerateMockServiceAction"/>
     <tns:action id="UpdateInterfaceAction"
                 actionClass="com.eviware.soapui.impl.wsdl.actions.iface.UpdateInterfaceAction"/>
+    <tns:action id="SortOperationsAction"
+                actionClass="com.eviware.soapui.impl.wsdl.actions.iface.SortOperationsAction"/>
     <tns:action id="ExportDefinitionAction"
                 actionClass="com.eviware.soapui.impl.wsdl.actions.iface.ExportDefinitionAction"/>
     <tns:action id="RemoveInterfaceAction"
@@ -488,6 +490,7 @@
         <tns:actionMapping actionId="CreateWsdlDocumentationAction"/>
         <tns:actionMapping actionId="SeperatorAction"/>
         <tns:actionMapping actionId="UpdateInterfaceAction" keyStroke="F5" iconPath="/updateDefinition.gif"/>
+        <tns:actionMapping actionId="SortOperationsAction" />
         <tns:actionMapping actionId="ExportDefinitionAction" keyStroke="menu P" iconPath="/export.png"/>
         <tns:actionMapping actionId="SeperatorAction"/>
         <tns:actionMapping actionId="CloneInterfaceAction" keyStroke="F9"/>
