@@ -490,7 +490,7 @@
         <tns:actionMapping actionId="CreateWsdlDocumentationAction"/>
         <tns:actionMapping actionId="SeperatorAction"/>
         <tns:actionMapping actionId="UpdateInterfaceAction" keyStroke="F5" iconPath="/updateDefinition.gif"/>
-        <tns:actionMapping actionId="SortOperationsAction" />
+        <tns:actionMapping actionId="SortOperationsAction" iconPath="/sort.png"/>
         <tns:actionMapping actionId="ExportDefinitionAction" keyStroke="menu P" iconPath="/export.png"/>
         <tns:actionMapping actionId="SeperatorAction"/>
         <tns:actionMapping actionId="CloneInterfaceAction" keyStroke="F9"/>
